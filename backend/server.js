@@ -1,5 +1,6 @@
 const express = require('express');
 require('dotenv').config();
+const workoutRoutes = require('./routes/workouts')
 
 const app = express();
 
@@ -12,6 +13,4 @@ app.use((req, res, next) => {
     next();
 })
 
-app.get('/', (req, res) => {
-    res.json({msg: 'Welcome to mern app'});
-});
+app.use('/api/workouts', workoutRoutes);
